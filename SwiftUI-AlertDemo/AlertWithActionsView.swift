@@ -13,25 +13,22 @@ struct AlertWithActionsView: View {
     @State private var messageText = "No message yet"
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Button(action: { self.showAlertWithActions.toggle() }) {
-                    Text("Show alert with actions")
-                }
-                .padding(.all)
-                    
-                Text("Message: \(messageText)")
-                .padding(.all)
+        VStack {
+            Button("Show alert with actions") {
+                self.showAlertWithActions.toggle()
+            }
+            .padding(.all)
                 
-                Spacer()
-                    
-                .alert(isPresented: $showAlertWithActions) {
-                    Alert(
-                        title: Text("Thanks"),
-                        message: Text("Say thanks?"),
-                        primaryButton: .default(Text("OK")) { self.messageText = "Thank you :-)" },
-                        secondaryButton: .cancel() { self.messageText = "Shame :-(" })
-                }
+            Text("Message: \(messageText)")
+            .padding(.all)
+            
+            Spacer()
+                
+            .alert(isPresented: $showAlertWithActions) {
+                Alert(title: Text("Thanks"),
+                      message: Text("Say thanks?"),
+                      primaryButton: .default(Text("OK")) { self.messageText = "Thank you :-)" },
+                      secondaryButton: .cancel() { self.messageText = "Shame :-(" })
             }
         }
     }

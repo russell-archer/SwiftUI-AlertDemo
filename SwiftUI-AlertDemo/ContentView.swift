@@ -14,21 +14,21 @@ struct ContentView : View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: AlertWithActionsView()) { Text("Goto AlertWithActionsView") }
-                .padding(.all)
+                NavigationLink(destination: AlertWithActionsView()) { Text("Goto AlertWithActionsView") }.padding(.bottom)
+                NavigationLink(destination: ActionSheetView()) { Text("Goto ActionSheetView") }.padding(.bottom)
+                NavigationLink(destination: PopoverView()) { Text("Goto PopoverView") }
 
-                Button(action: { self.showAlert.toggle() }) {
-                    Text("Show simple alert")
+                Divider()
+                
+                Button("Show simple alert") {
+                    self.showAlert.toggle()
                 }
                 .padding(.all)
                 
                 Spacer()
                             
                 .alert(isPresented: $showAlert) {
-                    Alert(
-                        title: Text("Thanks"),
-                        message: Text("Thanks for tapping!"),
-                        dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Thanks"), message: Text("Thanks for tapping!"), dismissButton: .default(Text("OK")))
                 }
             }
         }
