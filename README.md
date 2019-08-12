@@ -4,8 +4,8 @@
 
 In this SwiftUI demo I create an app that shows a simple **Alert** and an **Alert** with two possible actions.
 
-![](./readme-assets/final.gif)
+![](./final.gif)
 
 ___
 
-## Get a free Pixabay account
+
