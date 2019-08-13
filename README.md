@@ -19,6 +19,12 @@ The following demo shows:
 
 ___
 
+Note that originally I had two .alert modifiers in one View, bound to different @State variables. I found that only the "last" alert was triggered.
+I'm not sure if this is a bug (as of Xcode 11 Beta 5) or by-design behaviour. You can see some discussion on the topic on the SwiftUI forums
+here: https://forums.swift.org/t/alert-problem-in-swiftui/27169.
+
+___
+
 ## ContentView.swift
 A simple **Alert**
 
