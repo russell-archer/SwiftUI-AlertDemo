@@ -1,5 +1,5 @@
 # SwiftUI-AlertDemo
-## Using SwiftUI to display alerts
+## Using SwiftUI to display alerts, actionsheets and popovers
 **(Updated for Xcode 11 Beta 5)**
 
 In SwiftUI in order to display an **Alert** you need to define a bindable condition (e.g. a **@State** boolean) that determines whether 
