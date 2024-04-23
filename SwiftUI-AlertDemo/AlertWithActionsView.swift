@@ -7,15 +7,22 @@
 //
 
 import SwiftUI
+import EffectsLibrary
 
 struct AlertWithActionsView: View {
     @State private var showAlertWithActions = false
     @State private var messageText = "No message yet"
+    @State private var showFireworks = false
     
     var body: some View {
         VStack {
+            FireworksView()
+                .ignoresSafeArea()
+                .opacity(showFireworks ? 1 : 0)
+
             Button("Show alert with actions") {
-                self.showAlertWithActions.toggle()
+                showAlertWithActions.toggle()
+                withAnimation { showFireworks = true }
             }
             .padding(.all)
                 
@@ -27,8 +34,14 @@ struct AlertWithActionsView: View {
             .alert(isPresented: $showAlertWithActions) {
                 Alert(title: Text("Thanks"),
                       message: Text("Say thanks?"),
-                      primaryButton: .default(Text("OK")) { self.messageText = "Thank you :-)" },
-                      secondaryButton: .cancel() { self.messageText = "Shame :-(" })
+                      primaryButton: .default(Text("OK")) {
+                        messageText = "Thank you :-)"
+                        withAnimation { showFireworks = false }
+                      },
+                      secondaryButton: .cancel() {
+                        messageText = "Shame :-("
+                        withAnimation { showFireworks = false }
+                })
             }
         }
     }
